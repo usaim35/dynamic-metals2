@@ -1,18 +1,30 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import { Playfair_Display, DM_Sans } from "next/font/google";
+import "./globals.css";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+});
 
 export const metadata: Metadata = {
-  title: 'Dynamic Metals — Premium Metal Accessories',
-  description: 'Global supplier of premium metal hardware for fashion brands worldwide.',
+  title: "Dynemic Metals - Premium Garment Accessories",
+  description: "Leading manufacturer of snap buttons, buckles, eyelets, and garment accessories. Established 1999. Serving 50+ countries with international certifications.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-sans bg-white text-gray-900">
+    <html lang="en">
+      <body className={`${playfairDisplay.variable} ${dmSans.variable} font-sans`}>
         {children}
       </body>
     </html>
