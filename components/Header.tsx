@@ -20,7 +20,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-12 h-12 bg-white rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="relative w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
               <Image src="/logo.png" alt="Logo" width={48} height={48} className="object-cover" priority />
             </div>
             <span className="hidden sm:block font-bold text-xl text-black">Dynamic Metals</span>
