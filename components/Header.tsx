@@ -48,16 +48,6 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <a
-          href="https://wa.me/923001234567"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition"
-        >
-          WhatsApp
-        </a>
-
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -80,14 +70,6 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href="https://wa.me/923001234567"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition text-center mt-4"
-          >
-            WhatsApp
-          </a>
         </nav>
       )}
     </header>
