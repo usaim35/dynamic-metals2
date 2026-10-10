@@ -199,8 +199,8 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
+                    style={{ height: '120px' }}
                     placeholder="Tell us about your requirement..."
                   ></textarea>
                 </div>
@@ -230,13 +230,13 @@ export default function Contact() {
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <iframe
                   width="100%"
-                  height={400}
-                  frameBorder={0}
+                  height="400"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.942852755651!2d67.04999!3d24.9504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f5d7b5b5b5b%3A0x1234567890!2sBhayani%20Center%2C%20North%20Nazimabad%2C%20Karachi!5e0!3m2!1sen!2s!4v1234567890"
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Bhayani Center"
+                  style={{ border: 0 }}
                 ></iframe>
                 <div className="bg-white p-6">
                   <h3 className="font-bold text-lg text-gray-800">Bhayani Center</h3>
@@ -248,13 +248,13 @@ export default function Contact() {
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <iframe
                   width="100%"
-                  height={400}
-                  frameBorder={0}
+                  height="400"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.5!2d67.1234!3d24.87654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x931d3bf3128d4630!2sAl-Fiza%20Glass%20Tower%2C%20Gulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2s!4v1234567890"
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Al-Fiza Glass Tower"
+                  style={{ border: 0 }}
                 ></iframe>
                 <div className="bg-white p-6">
                   <h3 className="font-bold text-lg text-gray-800">Al-Fiza Glass Tower</h3>
