@@ -83,7 +83,7 @@ export default function Footer() {
             href="https://wa.me/923170784004"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full transition transform hover:scale-110"
+            className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full transition transform hover:scale-110 shadow-lg"
             title="WhatsApp"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export default function Footer() {
           </a>
           <a
             href="mailto:sahilsheikh2990@gmail.com"
-            className="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full transition transform hover:scale-110"
+            className="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full transition transform hover:scale-110 shadow-lg"
             title="Email"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

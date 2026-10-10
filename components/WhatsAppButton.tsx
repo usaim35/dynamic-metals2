@@ -1,23 +1,27 @@
-﻿'use client';
+'use client';
 
-import { MessageCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function WhatsAppButton() {
-  const whatsappNumber = '923001234567';
-  const message = 'Hi Dynamic Metals! I am interested in your metal accessories.';
+  const [show, setShow] = useState(false);
 
-  const openWhatsApp = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-  };
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
+  if (!show) return null;
 
   return (
-    <button
-      onClick={openWhatsApp}
-      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-110 z-40 animate-pulse"
-      title="Chat with us on WhatsApp"
+    <a
+      href="https://wa.me/923170784004"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-2xl hover:scale-110 transition-transform duration-300 z-40 animate-bounce"
+      title="Chat on WhatsApp"
     >
-      <MessageCircle size={28} />
-    </button>
+      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.425 0-2.809.356-4.038 1.03-.191.087-.374.176-.557.269l-3.657-.96.928 3.26c-.044.163-.087.324-.129.485-.726 2.511-.212 4.75 1.533 6.062 1.534 1.13 3.899 1.106 5.472.104 1.574-1.003 2.677-2.6 2.677-4.392 0-1.537-.639-2.985-1.75-4.073-1.111-1.088-2.574-1.685-4.145-1.685m7.446-3.79c-.997-1.003-2.306-1.759-3.758-2.206-1.452-.447-2.989-.676-4.545-.676-3.607 0-6.967 1.467-9.37 3.832-2.402 2.364-3.752 5.644-3.752 9.276 0 1.517.261 3.002.762 4.412L.05 23.928l4.816-1.289c1.341.757 2.876 1.155 4.466 1.155 3.607 0 6.967-1.467 9.37-3.832 2.402-2.364 3.752-5.644 3.752-9.276 0-2.464-.631-4.833-1.829-6.933"/>
+      </svg>
+    </a>
   );
 }
