@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import Footer from '@/components/Footer';
 
 export default function Contact() {
@@ -13,14 +13,13 @@ export default function Contact() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.currentTarget;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Send to email
     window.location.href = `mailto:sahilsheikh2990@gmail.com?subject=Quote Request from ${formData.name}&body=Name: ${formData.name}%0DEmail: ${formData.email}%0DPhone: ${formData.phone}%0DMessage: ${formData.message}`;
     setSubmitted(true);
     setTimeout(() => {
@@ -200,7 +199,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="5"
+                    rows={5}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
                     placeholder="Tell us about your requirement..."
                   ></textarea>
@@ -231,8 +230,8 @@ export default function Contact() {
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <iframe
                   width="100%"
-                  height="400"
-                  frameBorder="0"
+                  height={400}
+                  frameBorder={0}
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.942852755651!2d67.04999!3d24.9504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f5d7b5b5b5b%3A0x1234567890!2sBhayani%20Center%2C%20North%20Nazimabad%2C%20Karachi!5e0!3m2!1sen!2s!4v1234567890"
                   allowFullScreen=""
                   loading="lazy"
@@ -249,8 +248,8 @@ export default function Contact() {
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <iframe
                   width="100%"
-                  height="400"
-                  frameBorder="0"
+                  height={400}
+                  frameBorder={0}
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.5!2d67.1234!3d24.87654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x931d3bf3128d4630!2sAl-Fiza%20Glass%20Tower%2C%20Gulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2s!4v1234567890"
                   allowFullScreen=""
                   loading="lazy"

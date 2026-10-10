@@ -2,8 +2,14 @@
 
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import React from 'react';
 
-export default function RequestQuoteModal({ isOpen, onClose }) {
+interface RequestQuoteModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModalProps) {
   const [formData, setFormData] = useState({
     productType: '',
     quantity: '',
@@ -12,12 +18,12 @@ export default function RequestQuoteModal({ isOpen, onClose }) {
     phone: ''
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.currentTarget;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     window.location.href = `mailto:sahilsheikh2990@gmail.com?subject=Quote Request for ${formData.productType}&body=Product: ${formData.productType}%0DQuantity: ${formData.quantity}%0DCompany: ${formData.company}%0DEmail: ${formData.email}%0DPhone: ${formData.phone}`;
     setFormData({ productType: '', quantity: '', company: '', email: '', phone: '' });
