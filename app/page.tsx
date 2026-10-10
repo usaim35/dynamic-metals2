@@ -1,9 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import HeroSlider from '@/components/HeroSlider';
+import RequestQuoteModal from '@/components/RequestQuoteModal';
 import Footer from '@/components/Footer';
 
 export default function Home() {
+  const [showQuoteModal, setShowQuoteModal] = useState(false);
+
   const products = [
     { name: 'Snap Buttons', icon: '🔘', desc: 'Premium quality snap buttons' },
     { name: 'Eyelets', icon: '⭕', desc: 'Reinforced eyelets' },
@@ -43,19 +47,19 @@ export default function Home() {
       {/* Stats Section */}
       <div className="max-w-6xl mx-auto w-full px-6 py-20">
         <div className="grid md:grid-cols-4 gap-8">
-          <div className="text-center p-8 bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-8 bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
             <div className="text-5xl font-bold text-red-600 mb-2">25+</div>
             <p className="text-gray-700 font-semibold text-lg">Years Experience</p>
           </div>
-          <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
             <div className="text-5xl font-bold text-blue-600 mb-2">500+</div>
             <p className="text-gray-700 font-semibold text-lg">Happy Clients</p>
           </div>
-          <div className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
             <div className="text-5xl font-bold text-green-600 mb-2">50+</div>
             <p className="text-gray-700 font-semibold text-lg">Countries Served</p>
           </div>
-          <div className="text-center p-8 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-lg hover:shadow-xl transition">
+          <div className="text-center p-8 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
             <div className="text-5xl font-bold text-yellow-600 mb-2">6</div>
             <p className="text-gray-700 font-semibold text-lg">Product Lines</p>
           </div>
@@ -69,11 +73,15 @@ export default function Home() {
           {products.map((product, i) => (
             <div
               key={i}
-              className="group bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-8 transition transform hover:-translate-y-2 hover:shadow-2xl"
+              className="group bg-white border-2 border-gray-200 hover:border-red-600 rounded-xl p-8 transition transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => setShowQuoteModal(true)}
             >
               <div className="text-6xl mb-6 group-hover:scale-125 transition">{product.icon}</div>
               <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-red-600 transition">{product.name}</h3>
-              <p className="text-gray-600 text-lg">{product.desc}</p>
+              <p className="text-gray-600 text-lg mb-4">{product.desc}</p>
+              <button className="text-red-600 hover:text-red-700 font-bold transition">
+                Get Quote →
+              </button>
             </div>
           ))}
         </div>
@@ -128,18 +136,25 @@ export default function Home() {
       <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-20">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-6">Ready to Partner With Us?</h2>
+          <p className="text-xl opacity-90 mb-8">Get premium garment accessories with guaranteed quality</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="/contact" className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition">
+            <button 
+              onClick={() => setShowQuoteModal(true)}
+              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition transform hover:scale-105"
+            >
+              Get Quote
+            </button>
+            <a href="/contact" className="bg-white/20 hover:bg-white/30 border-2 border-white px-8 py-3 rounded-lg font-bold transition">
               Contact Us
-            </a>
-            <a href="https://wa.me/923170784004" target="_blank" rel="noopener noreferrer" className="bg-white/20 hover:bg-white/30 border-2 border-white px-8 py-3 rounded-lg font-bold transition">
-              WhatsApp Now
             </a>
           </div>
         </div>
       </div>
 
       <Footer />
+
+      {/* Quote Modal */}
+      <RequestQuoteModal isOpen={showQuoteModal} onClose={() => setShowQuoteModal(false)} />
     </div>
   );
 }
