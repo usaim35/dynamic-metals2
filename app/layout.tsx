@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
+import Header from "@/components/Header";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -14,7 +16,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Dynemic Metals - Premium Garment Accessories",
-  description: "Leading manufacturer of snap buttons, buckles, eyelets, and garment accessories. Established 1999. Serving 50+ countries with international certifications.",
+  description: "Leading manufacturer of snap buttons, buckles, eyelets, and garment accessories. Established 1999. Serving 50+ countries.",
 };
 
 export default function RootLayout({
@@ -25,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfairDisplay.variable} ${dmSans.variable} font-sans`}>
+        <Header />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
